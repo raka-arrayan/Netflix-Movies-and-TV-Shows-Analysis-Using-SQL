@@ -2,10 +2,12 @@
 
 Project ini bertujuan untuk menganalisis dataset Netflix menggunakan SQL yang berguna untuk memperoleh insight mengenai jenis konten, distribusi tahun rilis, rating, dan negara asal yang diperoleh dari kaggle
 
+[Netflix Movies and TV Shows Dataset](https://www.kaggle.com/datasets/shivamb/netflix-shows)
+
+
 ## Project Overview
 Project ini merupakan analisis eksploratif terhadap dataset Netflix Movies and TV Shows menggunakan SQL. 
 Analisis difokuskan pada distribusi konten, tren rilis, genre, aktor, negara produksi, serta indikasi konten kekerasan untuk memperoleh insight yang relevan dari sudut pandang bisnis dan data.
-
 
 ## Dataset
 Dataset yang digunakan adalah dataset Netflix Movies and TV Shows yang berisi informasi mengenai film dan acara TV yang tersedia di Netflix.
@@ -270,6 +272,7 @@ WHERE listed_in ILIKE '%Documentaries%'
 Menampilkan seluruh konten film di Netflix yang memiliki genre dokumenter dengan memfilter kolom listed_in yang mengandung kata Documentaries.
 
 **Hasil:** 
+
 Menghasilkan daftar film yang dikategorikan sebagai dokumenter beserta seluruh atributnya 
 
 ### 12.Menemukan semua konten yang tidak memiliki sutradara(director)
@@ -296,6 +299,7 @@ WHERE
 	release_year > EXTRACT(YEAR FROM CURRENT_DATE) - 10
 ```
 **Tujuan**
+
 Menemukan semua Movie atau TV show yang dibintangi oleh Salman Khan dalam 10 tahun terakhir dengan memfilter berdasarkan kolom casts dan release_year
 
 **Hasil:**  
@@ -314,6 +318,7 @@ ORDER BY 2 DESC
 LIMIT 5
 ```
 **Tujuan**
+
 Mengidentifikasi aktor yang paling sering muncul dalam konten Netflix asal India. Dengan memecah kolom casts menjadi nama aktor satu per satu dan menghitung frekuensi kemunculannya
 
 **Hasil:**  
@@ -327,6 +332,7 @@ Mengidentifikasi aktor yang paling sering muncul dalam konten Netflix asal India
 
 
 **Analisis**
+
 Dari hasil tersebut dapat disimpulkan bahwa Anupam Kher merupakan aktor yang paling dominan dalam konten Netflix India.
 
 ### 15.Kategorikan konten berdasarkan keberadaan kata kunci 'kill' dan 'violence' di kolom deskripsi. Beri label konten yang mengandung kata kunci ini sebagai 'Bad' dan semua konten lainnya sebagai 'Good'. Hitung berapa banyak item yang termasuk dalam setiap kategori.
@@ -361,6 +367,7 @@ Query ini bertujuan untuk mengelompokkan konten Netflix berdasarkan tingkat keke
 
 
 **Analisis**
+
 Disimpulkan bahwa konten Netflix didominasi oleh kategori “Good”, baik pada Movie maupun TV Show. Jumlah konten “Bad” relatif kecil, yang mengindikasikan bahwa deskripsi konten dengan kata kunci kekerasan tidak terlalu banyak muncul.
 
 
