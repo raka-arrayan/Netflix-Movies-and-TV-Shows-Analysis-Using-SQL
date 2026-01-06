@@ -44,6 +44,7 @@ FROM
 GROUP BY
     type;
 
+
 -- 2.Menentukan rating yang PALING UMUM (terbanyak) untuk setiap jenis konten (Movie dan TV Show).
 select
     type,
@@ -70,6 +71,7 @@ from
 where
     rangking = 1;
 
+
 --3.Menampilkan seluruh film yang dirilis pada tahun tertentu
 select
     *
@@ -79,7 +81,7 @@ where4.Menentukan 5 negara dengan jumlah konten terbanyak di Netflix
     type = 'Movie'
     and release_year = 2020;
 
---
+--4.Menentukan 5 negara dengan jumlah konten terbanyak di Netflix
 SELECT
     unnest(string_to_array(country, ', ')) AS country -- string_to_array: memecah string berdasarkan delimiter (', ')
     -- unnest: mengubah array menjadi baris
@@ -92,6 +94,7 @@ ORDER BY
     2 DESC
 LIMIT
     5;
+
 
 --5.Mengidentifikasikan movie terpanjang
 SELECT
@@ -106,6 +109,7 @@ WHERE
         from
             netflix
     );
+
 
 --6.Mengidentifikasi konten yang ditambahkan ke Netflix dalam lima tahun terakhir
 SELECT
@@ -123,6 +127,7 @@ WHERE
             WHEN date_added ~ '^[A-Za-z]+ [0-9]{1,2}, [0-9]{4}$' THEN to_date(date_added, 'Month DD, YYYY')
         END
     ) >= current_date - INTERVAL '5 years';
+
 
 --7.Menemukan semua movies / TV shows yang memiliki director oleh 'Rajiv chilaka'
 SELECT
@@ -155,6 +160,7 @@ ORDER BY
     2 DESC
 LIMIT
     5;
+
 
 --10.Cari tahu rata-rata jumlah konten yang dirilis oleh India di Netflix setiap tahunnya, lalu tampilkan 5 tahun dengan rata-rata rilis konten tertinggi.
 SELECT
@@ -189,6 +195,7 @@ LIMIT
 SELECT * FROM netflix
 WHERE listed_in ILIKE '%Documentaries%'
 
+
 --12.Menemukan semua konten yang tidak memiliki sutradara(director)
 SELECT
     *
@@ -215,6 +222,7 @@ WHERE country = 'India'
 GROUP BY 1
 ORDER BY 2 DESC
 LIMIT 10
+
 
 --15.Kategorikan konten berdasarkan keberadaan kata kunci 'kill' dan 'violence' di kolom deskripsi. Beri label konten yang mengandung kata kunci ini sebagai 'Bad' dan semua konten lainnya sebagai 'Good'. Hitung berapa banyak item yang termasuk dalam setiap kategori.
 SELECT 
